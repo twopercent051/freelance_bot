@@ -24,13 +24,13 @@ class MyProjects(Base):
 
     id = Column(Integer, nullable=False, primary_key=True, autoincrement=True)
     title = Column(String, nullable=False)
-    description = Column(String, nullable=True)
+    # description = Column(String, nullable=True)
     royalty = Column(Integer, nullable=False, server_default="0")
     start_date = Column(Date, nullable=False)
     finish_date = Column(Date, nullable=True)
     worktime = Column(Integer, nullable=False, server_default="0")  # Число минут
     is_finished = Column(Boolean, nullable=False, server_default="false")
-    one_hour_price = Column(Integer, nullable=True)
+    # one_hour_price = Column(Integer, nullable=True)
 
 
 class MyProjectsDAO(MyProjects):
