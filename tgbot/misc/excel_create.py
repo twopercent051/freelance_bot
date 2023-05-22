@@ -3,9 +3,6 @@ from openpyxl.styles import Font
 import os
 
 
-
-
-
 async def create_excel(projects_list: list):
     wb = Workbook()
     ws = wb.active
@@ -33,7 +30,7 @@ async def create_excel(projects_list: list):
                 project['title'],
                 project['royalty'],
                 project['start_date'].strftime('%d-%m-%Y'),
-                project['finish_date'].strftime('%d-%m-%Y'),
+                project['finish_date'].strftime('%d-%m-%Y') if project['finish_date'] else '--',
                 f"{project['worktime'] // 60} час {project['worktime'] % 60} мин",
                 "Завершён" if project['is_finished'] else "В работе",
                 '' if project['worktime'] == 0 else (60 * project['royalty']) / project['worktime'],
